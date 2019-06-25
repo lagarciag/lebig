@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/lagarciag/lebig"
-	"github.hpe.com/GoP4Sim/clintsim/switch/asic/asicbase/utils/inbig"
+
 )
 
 const globalRepeat = 1000
@@ -193,12 +193,12 @@ func TestShiftLeftSmall(t *testing.T) {
 
 		// set big int bytes
 		aBigInt := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytes)
+		lebig.ReverseSliceOfBytes(randBytes)
 		aBigInt.SetBytes(randBytes)
 		aBigInt.Lsh(&aBigInt, toShift)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 
 	}
@@ -224,12 +224,12 @@ func TestShiftLeftBig(t *testing.T) {
 
 		// set big int bytes
 		aBigInt := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytes)
+		lebig.ReverseSliceOfBytes(randBytes)
 		aBigInt.SetBytes(randBytes)
 		aBigInt.Lsh(&aBigInt, toShift)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 
 		checkSlices(t, newBytes, outBytes, x)
 	}
@@ -272,12 +272,12 @@ func TestShiftRightSmall(t *testing.T) {
 
 		// set big int bytes
 		aBigInt := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytes)
+		lebig.ReverseSliceOfBytes(randBytes)
 		aBigInt.SetBytes(randBytes)
 		aBigInt.Rsh(&aBigInt, toShift)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -302,11 +302,11 @@ func TestShiftRightBig(t *testing.T) {
 
 		// set big int bytes
 		aBigInt := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytes)
+		lebig.ReverseSliceOfBytes(randBytes)
 		aBigInt.SetBytes(randBytes)
 		aBigInt.Rsh(&aBigInt, toShift)
 		newBytes := aBigInt.Bytes()
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -331,11 +331,11 @@ func TestShiftRightBigWhenZero(t *testing.T) {
 
 		// set big int bytes
 		aBigInt := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytes)
+		lebig.ReverseSliceOfBytes(randBytes)
 		aBigInt.SetBytes(randBytes)
 		aBigInt.Rsh(&aBigInt, toShift)
 		newBytes := aBigInt.Bytes()
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -366,14 +366,14 @@ func TestAndBytes(t *testing.T) {
 		// set big int bytes
 		aBigInt := big.Int{}
 		aBigIntOperand := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytesInital)
-		inbig.ReverseSliceOfBytes(randBytesOperand)
+		lebig.ReverseSliceOfBytes(randBytesInital)
+		lebig.ReverseSliceOfBytes(randBytesOperand)
 		aBigInt.SetBytes(randBytesInital)
 		aBigIntOperand.SetBytes(randBytesOperand)
 		_ = aBigInt.And(&aBigInt, &aBigIntOperand)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -394,14 +394,14 @@ func TestAndBytes1(t *testing.T) {
 	// set big int bytes
 	aBigInt := big.Int{}
 	aBigIntOperand := big.Int{}
-	inbig.ReverseSliceOfBytes(bytesInital)
-	inbig.ReverseSliceOfBytes(bytesOperand)
+	lebig.ReverseSliceOfBytes(bytesInital)
+	lebig.ReverseSliceOfBytes(bytesOperand)
 	aBigInt.SetBytes(bytesInital)
 	aBigIntOperand.SetBytes(bytesOperand)
 	_ = aBigInt.And(&aBigInt, &aBigIntOperand)
 	newBytes := aBigInt.Bytes()
 
-	inbig.ReverseSliceOfBytes(newBytes)
+	lebig.ReverseSliceOfBytes(newBytes)
 	checkSlices(t, newBytes, outBytes, 0)
 
 }
@@ -432,14 +432,14 @@ func TestOrBytes(t *testing.T) {
 		// set big int bytes
 		aBigInt := big.Int{}
 		aBigIntOperand := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytesInital)
-		inbig.ReverseSliceOfBytes(randBytesOperand)
+		lebig.ReverseSliceOfBytes(randBytesInital)
+		lebig.ReverseSliceOfBytes(randBytesOperand)
 		aBigInt.SetBytes(randBytesInital)
 		aBigIntOperand.SetBytes(randBytesOperand)
 		_ = aBigInt.Or(&aBigInt, &aBigIntOperand)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -472,7 +472,7 @@ func TestAndUint64(t *testing.T) {
 		_ = aBigInt.And(&aBigInt, &aBigIntOperand)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
@@ -503,14 +503,14 @@ func TestIntOrUint64(t *testing.T) {
 		// set big int bytes
 		aBigInt := big.Int{}
 		aBigIntOperand := big.Int{}
-		inbig.ReverseSliceOfBytes(randBytesInital)
-		inbig.ReverseSliceOfBytes(randBytesOperand)
+		lebig.ReverseSliceOfBytes(randBytesInital)
+		lebig.ReverseSliceOfBytes(randBytesOperand)
 		aBigInt.SetBytes(randBytesInital)
 		aBigIntOperand.SetBytes(randBytesOperand)
 		_ = aBigInt.Or(&aBigInt, &aBigIntOperand)
 		newBytes := aBigInt.Bytes()
 
-		inbig.ReverseSliceOfBytes(newBytes)
+		lebig.ReverseSliceOfBytes(newBytes)
 		checkSlices(t, newBytes, outBytes, x)
 	}
 }
